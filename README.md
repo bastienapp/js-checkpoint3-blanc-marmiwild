@@ -25,7 +25,7 @@ Crée les routes suivantes (respecte les conventions de REST, notamment sur des 
 - POST `/recipes` : crée une nouvelle recette à partir de son nom et du lien d'une image
 - PUT `/recipes/{id}` : modifie le nom et/ou l'image d'une recette
 - DELETE `/recipes/{id}` : supprime une recette grâce à son identifiant
-- GET `/recipes/?search={query}` : affiche la liste des recettes ayant le terme recherché contenu dans son nom ou sa description
+- GET `/recipes/?search={query}` : affiche la liste des recettes ayant le terme recherché contenu dans son nom
 
 ### Les étapes :
 

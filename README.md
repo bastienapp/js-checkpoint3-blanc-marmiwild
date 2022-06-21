@@ -1,42 +1,33 @@
-# MVC Express
+# Checkpoint 3 Blanc - Marmi Wild
 
-## Description
+## 0. Configuration
 
-This repository is a simple Express MVC structure from scratch.
+Installer les dépendances du projets et configurer l'accès à la base de données.
 
-## Steps
+Lancer le serveur pour voir si tout fonctionne correctement.
 
-1. Clone the repo from Github.
-2. Run `npm install` or `yarn install`.
-3. Create _.env_ from _.env.sample_ file and add your DB parameters. Don't delete the _.sample_ file, it must be kept.
+## 1. Modélisation
 
-```
-DB_HOST=your_db_host
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
-DB_NAME=your_db_name
-```
+Créer les MCD et MLD du site de recette Marmi Wild.
 
-4. Adapt _database.sql_ with your own tables. Import the script in your SQL server. You can do it manually or run _migrate_ script (either using `npm run migrate` or `yarn run migrate`).
-5. Start the server in dev mode with `npm run dev` or `yarn run dev`. This will run `index.js` using _nodemon_.
-6. Go to `localhost:5000` with your favorite browser.
-7. From this starter kit, create your own web application.
+Sur Marmi Wild, il est possible d'afficher la liste des recettes du site : chaque recette possède un nom et une image. En cliquant sur la recette, une page présente toutes les étapes de la réalisation de celle-ci : une étape étant composée d'un nom et une description. Un utilisateur enregistré (avec son email et son mot de passe) pourra ajouter des recettes à ses favoris.
 
-### Windows Users
+Une fois la modélisation terminée, créer la base de données `marmiwild` correspondante.
 
-If you develop on Windows, you should edit you git configuration to change your end of line rules with this command :
+## 2. API
 
-`git config --global core.autocrlf true`
+Crée les routes suivantes (respecte les conventions de REST, notamment sur les code HTTP de réponse):
 
-## Example
+### Les recettes :
 
-An example (a basic list of items) is provided (you can load the _database.sql_ file in a test database). The accessible URLs are :
+- GET `/recipes` : affiche la liste des recettes
+- GET `/recipes/{id}` : affiche le nom et le lien de l'image d'une recette, grace à son identifiant
+- POST `/recipes` : crée une nouvelle recette à partir de son nom et du lien d'une image
+- PUT `/recipes/{id}` : modifie le nom et/ou l'image d'une recette
+- DELETE `/recipes/{id}` : supprime une recette grâce à son identifiant
+- GET `/recipes/?search={query}` : affiche la liste des recettes ayant le terme recherché contenu dans son nom ou sa description
 
-- Home page: [GET localhost:5000/](localhost:5000/)
-- Item browse: [GET localhost:5000/items](localhost:5000/items)
-- Item read: [GET localhost:5000/items/:id](localhost:5000/items/2)
-- Item edit: PUT localhost:5000/items/:id
-- Item add: POST localhost:5000/items
-- Item deletion: DELETE localhost:5000/items/:id
+### Les étapes :
 
-You can find all these routes declared in the file `src/router.js`. You can add your own new routes, controllers and models.
+- GET `/recipes/{id}/steps` : récupère la liste des étapes d'une recette, classées par leur position croissante
+- POST `/recipes/{id}/steps` : crée une nouvelle étape d'une recette à partir de sa description et de sa position

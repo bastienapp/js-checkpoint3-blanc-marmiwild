@@ -12,9 +12,9 @@ Créer les MCD et MLD du site de recette Marmi Wild.
 
 Sur Marmi Wild, il est possible d'afficher la liste des recettes du site : chaque recette possède un nom et une image. En cliquant sur la recette, une page présente toutes les étapes de la réalisation de celle-ci : une étape étant composée d'un nom, une description et une position. Un utilisateur enregistré (avec son email et son mot de passe) pourra ajouter des recettes à ses favoris.
 
-Une fois la modélisation terminée, créer la base de données `marmiwild` correspondante.
-
 ## 2. API
+
+Créer la base de données `marmiwild` et sa structure à partir du fichier `database.sql`.
 
 Crée les routes suivantes (respecte les conventions de REST, notamment sur les code HTTP de réponse):
 

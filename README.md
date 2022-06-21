@@ -16,7 +16,7 @@ Sur Marmi Wild, il est possible d'afficher la liste des recettes du site : chaqu
 
 Créer la base de données `marmiwild` et sa structure à partir du fichier `database.sql`.
 
-Crée les routes suivantes (respecte les conventions de REST, notamment sur les code HTTP de réponse):
+Crée les routes suivantes (respecte les conventions de REST, notamment sur des codes HTTP de réponse):
 
 ### Les recettes :
 
